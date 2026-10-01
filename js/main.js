@@ -15,6 +15,7 @@
     navToggle.addEventListener("click", function () {
       var open = mainNav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.classList.toggle("is-active", open);
     });
     mainNav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", closeNav);
