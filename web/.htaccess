@@ -1,0 +1,15 @@
+DirectoryIndex index.html
+
+# Sin listado de directorios
+Options -Indexes
+
+# Forzar HTTPS (redirige http -> https con 301)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Canónico sin "www" (autoescuelaelsur.com)
+  RewriteCond %{HTTP_HOST} ^www\.autoescuelaelsur\.com$ [NC]
+  RewriteRule ^ https://autoescuelaelsur.com%{REQUEST_URI} [R=301,L]
+</IfModule>
